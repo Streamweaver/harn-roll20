@@ -1,0 +1,418 @@
+.sheet-section-head {
+     color: #FFF;
+     background-color: #000;
+     text-align: center;
+    padding: 4px 0px;
+    margin-bottom: 3px;
+    background-color: #313131;
+ }
+
+.sheet-skill-label {
+    width: 146px;
+    display: inline-block;
+}
+.sheet-skill-note {
+    width: 420px;
+    display: inline-block;
+}
+.sheet-skill-value {
+    width: 2.5em !important;
+    display: inline-block;
+    margin-bottom: 0;
+}
+.sheet-number-value {
+    width: 3.5em;
+}
+
+input.sheet-skill-value[type=number]::-webkit-outer-spin-button,
+input.sheet-skill-value[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+
+.sheet-skill-header {
+    display: inline-block;
+    font-weight: bold;
+}
+.sheet-profile-label {
+    width: 120px;
+    display: inline-block;
+}
+.sheet-profile-input {
+    width: 190px;
+    display: inline-block;
+}
+
+.sheet-stat-col {
+    width: 210px;
+    display: inline-block;
+    vertical-align: top;
+}
+.sheet-stat-label {
+    width: 40px;
+    display: inline-block;
+    text-align: right;
+    padding-right: 4px;
+}
+.sheet-stat-value {
+    width: 46px;
+    display: inline-block;
+}
+
+.sheet-info-col {
+    display: inline-block;
+    width: 300px;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+
+.sheet-info-label {
+    width: 80px;
+    display: inline-block;
+}
+.sheet-info-input {
+    width: 210px;
+    display: inline-block;
+}
+
+.sheet-combat-label {
+    width: 80px;
+    display: inline-block;
+    text-align: right;
+    padding-right: 4px;
+}
+.sheet-combat-value {
+    width: 46px;
+    display: inline-block;
+}
+
+.sheet-check-col {
+    width: 20px;
+    display: inline-block;
+}
+
+/* New Styles */
+.sheet-row {
+    position: relative;
+    width: 100%;
+}
+.sheet-panel {
+    text-align: center;
+    padding: 3px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px; }
+
+.sheet-font-light {
+    font-weight: 200;
+}
+
+.sheet-font-regular {
+    font-weight: 400;
+}
+
+.sheet-font-heavy {
+    font-weight: 700;
+}
+
+.sheet-gutters {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.sheet-hr {
+    border-top: 1px solid #9b7d7b;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 0;
+}
+
+/* POSITIONING */
+
+.sheet-left {
+    text-align: left;
+}
+
+.sheet-right {
+    text-align: right;
+}
+
+.sheet-center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.sheet-justify {
+    text-align: justify;
+}
+
+/* ==== GRID SYSTEM ==== */
+
+.sheet-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.sheet-row {
+    position: relative;
+    width: 100%;
+    margin-bottom: .5em;
+}
+
+.sheet-row [class^="col"] {
+    float: left;
+    margin: 8px 2%;
+    min-height: 2px;
+}
+
+.sheet-col1,
+.sheet-col2,
+.sheet-col3,
+.sheet-col4,
+.sheet-col5,
+.sheet-col6,
+.sheet-col7,
+.sheet-col8,
+.sheet-col9,
+.sheet-col10,
+.sheet-col11,
+.sheet-col12 {
+    width: 96%;
+}
+
+.sheet-col1-sm {
+    width: 4.33%;
+}
+
+.sheet-col2-sm {
+    width: 12.66%;
+}
+
+.sheet-col3-sm {
+    width: 21%;
+}
+
+.sheet-col4-sm {
+    width: 29.33%;
+}
+
+.sheet-col5-sm {
+    width: 37.66%;
+}
+
+.sheet-col6-sm {
+    width: 46%;
+}
+
+.sheet-col7-sm {
+    width: 54.33%;
+}
+
+.sheet-col8-sm {
+    width: 62.66%;
+}
+
+.sheet-col9-sm {
+    width: 71%;
+}
+
+.sheet-col10-sm {
+    width: 79.33%;
+}
+
+.sheet-col11-sm {
+    width: 87.66%;
+}
+
+.sheet-col12-sm {
+    width: 96%;
+}
+
+.sheet-row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media only screen and (min-width: 540px) {
+    .sheet-container {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 720px) {
+    .sheet-col1 {
+        width: 4.33%;
+    }
+
+    .sheet-col2 {
+        width: 12.66%;
+    }
+
+    .sheet-col3 {
+        width: 21%;
+    }
+
+    .sheet-col4 {
+        width: 29.33%;
+    }
+
+    .sheet-col5 {
+        width: 37.66%;
+    }
+
+    .sheet-col6 {
+        width: 46%;
+    }
+
+    .sheet-col7 {
+        width: 54.33%;
+    }
+
+    .sheet-col8 {
+        width: 62.66%;
+    }
+
+    .sheet-col9 {
+        width: 71%;
+    }
+
+    .sheet-col10 {
+        width: 79.33%;
+    }
+
+    .sheet-col11 {
+        width: 87.66%;
+    }
+
+    .sheet-col12 {
+        width: 96%;
+    }
+
+    .sheet-hidden-sm {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    .sheet-container {
+        width: 75%;
+        max-width: 960px;
+    }
+}
+
+/* ROLL TEMPLATES */
+.sheet-rolltemplate-check-lt table,
+.sheet-rolltemplate-check-gt table,
+.sheet-rolltemplate-skillcheck table {
+    width: 100%;
+    border: 1px solid;
+    color: black;
+    font-size: 1em;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.sheet-rolltemplate-check-lt th,
+.sheet-rolltemplate-check-gt th,
+.sheet-rolltemplate-skillcheck th {
+    background-color: #313131;
+    color: #ffffff;
+    padding: 2px;
+    border-bottom: 1px solid black;
+    line-height: 1.6em;
+    font-size: 1.2em;
+}
+
+.sheet-rolltemplate-check-lt .sheet-tcat,
+.sheet-rolltemplate-check-gt .sheet-tcat,
+.sheet-rolltemplate-skillcheck .sheet-tcat {
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-check-lt td,
+.sheet-rolltemplate-check-gt td,
+.sheet-rolltemplate-skillcheck td {
+    padding: 5px;
+    border-bottom: 1px solid black;
+}
+
+.sheet-rolltemplate-check-lt tr:nth-child(odd),
+.sheet-rolltemplate-check-gt tr:nth-child(odd),
+.sheet-rolltemplate-skillcheck tr:nth-child(odd) {
+    background-color: #FDF5E6;
+}
+
+.sheet-rolltemplate-check-lt tr:nth-child(even),
+.sheet-rolltemplate-check-gt tr:nth-child(even),
+.sheet-rolltemplate-skillcheck tr:nth-child(even) {
+    background-color: #FFFAF0;
+}
+
+.sheet-rolltemplate-check-lt .inlinerollresult,
+.sheet-rolltemplate-check-gt .inlinerollresult,
+.sheet-rolltemplate-skillcheck .inlinerollresult  {
+    display: inline-block;
+    min-width: 1.5em;
+    text-align: center;
+    border: 2px solid rgba(167, 168, 170,1); /*Cool Gray 6 C*/
+}
+
+.sheet-rolltemplate-check-lt .inlinerollresult.fullcrit,
+.sheet-rolltemplate-check-gt .inlinerollresult.fullcrit,
+.sheet-rolltemplate-skillcheck .inlinerollresult.fullcrit {
+    border: 2px solid #3FB315;
+}
+
+.sheet-rolltemplate-check-lt .inlinerollresult.fullfail,
+.sheet-rolltemplate-check-gt .inlinerollresult.fullfail,
+.sheet-rolltemplate-skillcheck .inlinerollresult.fullfail {
+    border: 2px solid #B31515;
+}
+
+.sheet-rolltemplate-check-lt .inlinerollresult.importantroll,
+.sheet-rolltemplate-check-gt .inlinerollresult.importantroll,
+.sheet-rolltemplate-skillcheck .inlinerollresult.importantroll {
+    border: 2px solid #4A57ED;
+}
+
+.sheet-rolltemplate-check-lt .sheet-success,
+.sheet-rolltemplate-check-gt .sheet-success,
+.sheet-rolltemplate-skillcheck .sheet-success {
+    border: 2px solid #3FB315;
+    background-color: #99FF99;
+    text-align: center;
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-check-lt .sheet-failure,
+.sheet-rolltemplate-check-gt .sheet-failure,
+.sheet-rolltemplate-skillcheck .sheet-failure {
+    border: 2px solid #CC6600;
+    background-color: #FFCC99;
+    text-align: center;
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-check-lt .sheet-crit-success,
+.sheet-rolltemplate-check-gt .sheet-crit-success,
+.sheet-rolltemplate-skillcheck .sheet-crit-success {
+    border: 2px solid #009900;
+    background-color: #00CC00;
+    text-align: center;
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-check-lt .sheet-crit-failure,
+.sheet-rolltemplate-check-gt .sheet-crit-failure,
+.sheet-rolltemplate-skillcheck .sheet-crit-failure {
+    border: 2px solid #990000;
+    background-color: #CC0000;
+    text-align: center;
+    font-weight: bold;
+}
