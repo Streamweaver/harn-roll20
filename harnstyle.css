@@ -311,7 +311,7 @@ input[type=number]::-webkit-inner-spin-button {
 /* ROLL TEMPLATES */
 .sheet-rolltemplate-check-lt table,
 .sheet-rolltemplate-check-gt table,
-.sheet-rolltemplate-skillcheck table {
+.sheet-rolltemplate-rollcheck table {
     width: 100%;
     border: 1px solid;
     color: black;
@@ -321,7 +321,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 .sheet-rolltemplate-check-lt th,
 .sheet-rolltemplate-check-gt th,
-.sheet-rolltemplate-skillcheck th {
+.sheet-rolltemplate-rollcheck th {
     background-color: #313131;
     color: #ffffff;
     padding: 2px;
@@ -332,32 +332,32 @@ input[type=number]::-webkit-inner-spin-button {
 
 .sheet-rolltemplate-check-lt .sheet-tcat,
 .sheet-rolltemplate-check-gt .sheet-tcat,
-.sheet-rolltemplate-skillcheck .sheet-tcat {
+.sheet-rolltemplate-rollcheck .sheet-tcat {
     font-weight: bold;
 }
 
 .sheet-rolltemplate-check-lt td,
 .sheet-rolltemplate-check-gt td,
-.sheet-rolltemplate-skillcheck td {
+.sheet-rolltemplate-rollcheck td {
     padding: 5px;
     border-bottom: 1px solid black;
 }
 
 .sheet-rolltemplate-check-lt tr:nth-child(odd),
 .sheet-rolltemplate-check-gt tr:nth-child(odd),
-.sheet-rolltemplate-skillcheck tr:nth-child(odd) {
+.sheet-rolltemplate-rollcheck tr:nth-child(odd) {
     background-color: #FDF5E6;
 }
 
 .sheet-rolltemplate-check-lt tr:nth-child(even),
 .sheet-rolltemplate-check-gt tr:nth-child(even),
-.sheet-rolltemplate-skillcheck tr:nth-child(even) {
+.sheet-rolltemplate-rollcheck tr:nth-child(even) {
     background-color: #FFFAF0;
 }
 
 .sheet-rolltemplate-check-lt .inlinerollresult,
 .sheet-rolltemplate-check-gt .inlinerollresult,
-.sheet-rolltemplate-skillcheck .inlinerollresult  {
+.sheet-rolltemplate-rollcheck .inlinerollresult  {
     display: inline-block;
     min-width: 1.5em;
     text-align: center;
@@ -366,25 +366,25 @@ input[type=number]::-webkit-inner-spin-button {
 
 .sheet-rolltemplate-check-lt .inlinerollresult.fullcrit,
 .sheet-rolltemplate-check-gt .inlinerollresult.fullcrit,
-.sheet-rolltemplate-skillcheck .inlinerollresult.fullcrit {
+.sheet-rolltemplate-rollcheck .inlinerollresult.fullcrit {
     border: 2px solid #3FB315;
 }
 
 .sheet-rolltemplate-check-lt .inlinerollresult.fullfail,
 .sheet-rolltemplate-check-gt .inlinerollresult.fullfail,
-.sheet-rolltemplate-skillcheck .inlinerollresult.fullfail {
+.sheet-rolltemplate-rollcheck .inlinerollresult.fullfail {
     border: 2px solid #B31515;
 }
 
 .sheet-rolltemplate-check-lt .inlinerollresult.importantroll,
 .sheet-rolltemplate-check-gt .inlinerollresult.importantroll,
-.sheet-rolltemplate-skillcheck .inlinerollresult.importantroll {
+.sheet-rolltemplate-rollcheck .inlinerollresult.importantroll {
     border: 2px solid #4A57ED;
 }
 
 .sheet-rolltemplate-check-lt .sheet-success,
 .sheet-rolltemplate-check-gt .sheet-success,
-.sheet-rolltemplate-skillcheck .sheet-success {
+.sheet-rolltemplate-rollcheck .sheet-success {
     border: 2px solid #3FB315;
     background-color: #99FF99;
     text-align: center;
@@ -393,7 +393,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 .sheet-rolltemplate-check-lt .sheet-failure,
 .sheet-rolltemplate-check-gt .sheet-failure,
-.sheet-rolltemplate-skillcheck .sheet-failure {
+.sheet-rolltemplate-rollcheck .sheet-failure {
     border: 2px solid #CC6600;
     background-color: #FFCC99;
     text-align: center;
@@ -402,7 +402,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 .sheet-rolltemplate-check-lt .sheet-crit-success,
 .sheet-rolltemplate-check-gt .sheet-crit-success,
-.sheet-rolltemplate-skillcheck .sheet-crit-success {
+.sheet-rolltemplate-rollcheck .sheet-crit-success {
     border: 2px solid #009900;
     background-color: #00CC00;
     text-align: center;
@@ -411,7 +411,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 .sheet-rolltemplate-check-lt .sheet-crit-failure,
 .sheet-rolltemplate-check-gt .sheet-crit-failure,
-.sheet-rolltemplate-skillcheck .sheet-crit-failure {
+.sheet-rolltemplate-rollcheck .sheet-crit-failure {
     border: 2px solid #990000;
     background-color: #CC0000;
     text-align: center;

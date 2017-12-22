@@ -155,7 +155,7 @@
             <input type="text" name="attr_INITIATIVE_SB" class="sheet-skill-value" value="0">
             <input type="text" name="attr_INITIATIVE_ML" class="sheet-skill-value" value="0">
             <button type="roll"
-                    value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{INITIATIVE_NAME}}} {{rolltarget=[[@{INITIATIVE_ML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{INITIATIVE_ML}}}"
+                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{INITIATIVE_NAME}}} {{rolltarget=[[@{INITIATIVE_ML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{INITIATIVE_ML}}}"
                     name="roll_InitiativeCheck"></button>
         </div>
         <div>
@@ -163,7 +163,7 @@
             <input type="text" name="attr_UNARMED_SB" class="sheet-skill-value" value="0">
             <input type="text" name="attr_UNARMED_ML" class="sheet-skill-value" value="0">
             <button type="roll"
-                    value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{UNARMED_NAME}}} {{rolltarget=[[@{UNARMED_ML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{UNARMED_ML}}}"
+                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{UNARMED_NAME}}} {{rolltarget=[[@{UNARMED_ML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{UNARMED_ML}}}"
                     name="roll_UnarmedCheck"></button>
         </div>
         <div>
@@ -171,7 +171,7 @@
             <input type="text" name="attr_DODGE_SB" class="sheet-skill-value" value="0">
             <input type="text" name="attr_DODGE_ML" class="sheet-skill-value" value="0">
             <button type="roll"
-                    value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{DODGE_NAME}}} {{rolltarget=[[@{DODGE_ML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{DODGE_ML}}}"
+                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{DODGE_NAME}}} {{rolltarget=[[@{DODGE_ML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{DODGE_ML}}}"
                     name="roll_DodgeCheck"></button>
         </div>
         <fieldset class="repeating_combatskill">
@@ -180,7 +180,7 @@
                 <input type="text" name="attr_COMBATSKILL_SB" class="sheet-skill-value" value="0">
                 <input type="text" name="attr_COMBATSKILL_ML" class="sheet-skill-value" value="0">
                 <button type="roll"
-                        value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{COMBATSKILL_NAME}}} {{rolltarget=[[@{COMBATSKILL_ML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{COMBATSKILL_ML}}}"
+                        value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{COMBATSKILL_NAME}}} {{rolltarget=[[@{COMBATSKILL_ML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{COMBATSKILL_ML}}}"
                         name="roll_CombatSkillCheck"></button>
             </div>
         </fieldset>
@@ -197,7 +197,7 @@
             <input type="text" name="attr_CLIMBING_SB" class="sheet-skill-value" value="0">
             <input type="text" name="attr_CLIMBING_ML" class="sheet-skill-value" value="0">
             <button type="roll"
-                    value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{CLIMBING_NAME}}} {{rolltarget=[[@{CLIMBING_ML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{CLIMBING_ML}}}"
+                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{CLIMBING_NAME}}} {{rolltarget=[[@{CLIMBING_ML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{CLIMBING_ML}}}"
                     name="roll_ClimbingSkillCheck"></button>
         </div>
         <div>
@@ -205,7 +205,7 @@
             <input type="text" name="attr_CONDITION_SB" class="sheet-skill-value" value="0">
             <input type="text" name="attr_CONDITION_ML" class="sheet-skill-value" value="0">
             <button type="roll"
-                    value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{CONDITION_NAME}}} {{rolltarget=[[@{CONDITION_ML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{CONDITION_ML}}}"
+                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{CONDITION_NAME}}} {{rolltarget=[[@{CONDITION_ML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{CONDITION_ML}}}"
                     name="roll_ConditionSkillCheck"></button>
         </div>
         <div>
@@ -213,7 +213,7 @@
             <input type="text" name="attr_JUMPING_SB" class="sheet-skill-value" value="0">
             <input type="text" name="attr_JUMPING_ML" class="sheet-skill-value" value="0">
             <button type="roll"
-                    value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{JUMPING_NAME}}} {{rolltarget=[[@{JUMPING_ML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{JUMPING_ML}}}"
+                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{JUMPING_NAME}}} {{rolltarget=[[@{JUMPING_ML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{JUMPING_ML}}}"
                     name="roll_JumpingSkillCheck"></button>
         </div>
         <div>
@@ -221,7 +221,7 @@
             <input type="text" name="attr_STEALTH_SB" class="sheet-skill-value" value="0">
             <input type="text" name="attr_STEALTH_ML" class="sheet-skill-value" value="0">
             <button type="roll"
-                    value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{STEALTH_NAME}}} {{rolltarget=[[@{STEALTH_ML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{STEALTH_ML}}}"
+                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{STEALTH_NAME}}} {{rolltarget=[[@{STEALTH_ML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{STEALTH_ML}}}"
                     name="roll_StealthSkillCheck"></button>
         </div>
         <div>
@@ -229,7 +229,7 @@
             <input type="text" name="attr_THROWING_SB" class="sheet-skill-value" value="0">
             <input type="text" name="attr_THROWING_ML" class="sheet-skill-value" value="0">
             <button type="roll"
-                    value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{THROWING_NAME}}} {{rolltarget=[[@{THROWING_ML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{THROWING_ML}}}"
+                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{THROWING_NAME}}} {{rolltarget=[[@{THROWING_ML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{THROWING_ML}}}"
                     name="roll_ThrowingSkillCheck"></button>
         </div>
         <fieldset class="repeating_physicalskill">
@@ -238,7 +238,7 @@
                 <input type="text" name="attr_PHYSICALSKILL_SB" class="sheet-skill-value" value="0">
                 <input type="text" name="attr_PHYSICALSKILL_ML" class="sheet-skill-value" value="0">
                 <button type="roll"
-                        value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{PHYSICALSKILL_NAME}}} {{rolltarget=[[@{PHYSICALSKILL_ML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{PHYSICALSKILL_ML}}}"
+                        value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{PHYSICALSKILL_NAME}}} {{rolltarget=[[@{PHYSICALSKILL_ML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{PHYSICALSKILL_ML}}}"
                         name="roll_PhysicalSkillCheck"></button>
             </div>
         </fieldset>
@@ -255,7 +255,7 @@
             <input type="text" name="attr_AWARENESS_SB" class="sheet-skill-value" value="0">
             <input type="text" name="attr_AWARENESS_ML" class="sheet-skill-value" value="0">
             <button type="roll"
-                    value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{AWARENESS_NAME}}} {{rolltarget=[[@{AWARENESS_ML} - [[(@{UNIVERSAL_PENALTY})*5]]]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{AWARENESS_ML}}}"
+                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{AWARENESS_NAME}}} {{rolltarget=[[@{AWARENESS_ML} - [[(@{UNIVERSAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{AWARENESS_ML}}}"
                     name="roll_AwarenessSkillCheck"></button>
         </div>
         <div>
@@ -263,7 +263,7 @@
             <input type="text" name="attr_INTRIGUE_SB" class="sheet-skill-value" value="0">
             <input type="text" name="attr_INTRIGUE_ML" class="sheet-skill-value" value="0">
             <button type="roll"
-                    value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{INTRIGUE_NAME}}} {{rolltarget=[[@{INTRIGUE_ML} - [[(@{UNIVERSAL_PENALTY})*5]]]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{INTRIGUE_ML}}}"
+                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{INTRIGUE_NAME}}} {{rolltarget=[[@{INTRIGUE_ML} - [[(@{UNIVERSAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{INTRIGUE_ML}}}"
                     name="roll_IntrigueSkillCheck"></button>
         </div>
         <div>
@@ -271,7 +271,7 @@
             <input type="text" name="attr_ORATORY_SB" class="sheet-skill-value" value="0">
             <input type="text" name="attr_ORATORY_ML" class="sheet-skill-value" value="0">
             <button type="roll"
-                    value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{ORATORY_NAME}}} {{rolltarget=[[@{ORATORY_ML} - [[(@{UNIVERSAL_PENALTY})*5]]]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{ORATORY_ML}}}"
+                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{ORATORY_NAME}}} {{rolltarget=[[@{ORATORY_ML} - [[(@{UNIVERSAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{ORATORY_ML}}}"
                     name="roll_OratorySkillCheck"></button>
         </div>
         <div>
@@ -279,7 +279,7 @@
             <input type="text" name="attr_RHETORIC_SB" class="sheet-skill-value" value="0">
             <input type="text" name="attr_RHETORIC_ML" class="sheet-skill-value" value="0">
             <button type="roll"
-                    value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{RHETORIC_NAME}}} {{rolltarget=[[@{RHETORIC_ML} - [[(@{UNIVERSAL_PENALTY})*5]]]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{RHETORIC_ML}}}"
+                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{RHETORIC_NAME}}} {{rolltarget=[[@{RHETORIC_ML} - [[(@{UNIVERSAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{RHETORIC_ML}}}"
                     name="roll_RhetoricSkillCheck"></button>
         </div>
         <div>
@@ -287,7 +287,7 @@
             <input type="text" name="attr_SINGING_SB" class="sheet-skill-value" value="0">
             <input type="text" name="attr_SINGING_ML" class="sheet-skill-value" value="0">
             <button type="roll"
-                    value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{SINGING_NAME}}} {{rolltarget=[[@{SINGING_ML} - [[(@{UNIVERSAL_PENALTY})*5]]]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{SINGING_ML}}}"
+                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{SINGING_NAME}}} {{rolltarget=[[@{SINGING_ML} - [[(@{UNIVERSAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{SINGING_ML}}}"
                     name="roll_SingingSkillCheck"></button>
         </div>
         <fieldset class="repeating_communicationskill">
@@ -296,7 +296,7 @@
                 <input type="text" name="attr_COMMUNICATIONSKILL_SB" class="sheet-skill-value" value="0">
                 <input type="text" name="attr_COMMUNICATIONSKILL_ML" class="sheet-skill-value" value="0">
                 <button type="roll"
-                        value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{COMMUNICATIONSKILL_NAME}}} {{rolltarget=[[@{COMMUNICATIONSKILL_ML} - [[(@{UNIVERSAL_PENALTY})*5]]]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{COMMUNICATIONSKILL_ML}}}"
+                        value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{COMMUNICATIONSKILL_NAME}}} {{rolltarget=[[@{COMMUNICATIONSKILL_ML} - [[(@{UNIVERSAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{COMMUNICATIONSKILL_ML}}}"
                         name="roll_CommunicationSkillCheck"></button>
             </div>
         </fieldset>
@@ -317,7 +317,7 @@
                 <input type="text" name="attr_LORESKILL_SB" class="sheet-skill-value" value="0">
                 <input type="text" name="attr_LORESKILL_ML" class="sheet-skill-value" value="0">
                 <button type="roll"
-                        value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{LORESKILL_NAME}}} {{rolltarget=[[@{LORESKILL_ML} - [[(@{UNIVERSAL_PENALTY})*5]]]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{LORESKILL_ML}}}"
+                        value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{LORESKILL_NAME}}} {{rolltarget=[[@{LORESKILL_ML} - [[(@{UNIVERSAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{LORESKILL_ML}}}"
                         name="roll_LoreSkillCheck"></button>
             </div>
         </fieldset>
@@ -336,7 +336,7 @@
                 <input type="text" name="attr_RITUALSKILL_SB" class="sheet-skill-value" value="0">
                 <input type="text" name="attr_RITUALSKILL_ML" class="sheet-skill-value" value="0">
                 <button type="roll"
-                        value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{RITUALSKILL_NAME}}} {{rolltarget=[[@{RITUALSKILL_ML} - [[(@{UNIVERSAL_PENALTY})*5]]]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{RITUALSKILL_ML}}}"
+                        value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{RITUALSKILL_NAME}}} {{rolltarget=[[@{RITUALSKILL_ML} - [[(@{UNIVERSAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{RITUALSKILL_ML}}}"
                         name="roll_RitualSkillCheck"></button>
             </div>
         </fieldset>
@@ -353,7 +353,7 @@
                 <input type="text" name="attr_MAGICSKILL_NAME" class="sheet-skill-label">
                 <input type="text" name="attr_MAGICSKILL_SB" class="sheet-skill-value" value="0">
                 <input type="text" name="attr_MAGICSKILL_ML" class="sheet-skill-value" value="0">
-                <button type="roll" value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=@{MAGICSKILL_NAME}}} {{rolltarget=[[@{MAGICSKILL_ML} - [[(@{UNIVERSAL_PENALTY})*5]]]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{MAGICSKILL_ML}}}"
+                <button type="roll" value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=@{MAGICSKILL_NAME}}} {{rolltarget=[[@{MAGICSKILL_ML} - [[(@{UNIVERSAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{MAGICSKILL_ML}}}"
                         name="roll_MagicSkillCheck"></button>
             </div>
         </fieldset>
@@ -389,9 +389,9 @@
             <div class="sheet-combat-label">Dodge</div>
             <input type="text" name="attr_COMBAT_DODGE" disabled="true" class="sheet-skill-value" value="@{DODGE_ML}">
             <button type="roll"
-                    value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=Dodge}} {{rolltarget=[[@{COMBAT_DODGE} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{COMBAT_DODGE}}}"
+                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=Dodge}} {{rolltarget=[[@{COMBAT_DODGE} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{COMBAT_DODGE}}}"
                     name="roll_CombatDodgeCheck"></button>
-            
+
         </div>
     </div>
     <div class="sheet-col">
@@ -439,7 +439,7 @@
                 </select>
                 <input type="text" name="attr_INJURY_LEVEL" class="sheet-skill-value" value="0">
                 <input type="text" name="attr_INJURY_HEALINGROLL" class="sheet-skill-value" value="0">
-                <div class="sheet-skill-value"><button type="roll" value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=a Healing Check}} {{rolltarget=[[@{INJURY_HEALINGROLL} * [[@{COMBAT_ENDURANCE}]]]]}} {{penalty=[[0]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=[[@{INJURY_HEALINGROLL} * [[@{COMBAT_ENDURANCE}]]}} {{note=@{INJURY_LOCATION} @{INJURY_SEVERITY}@{INJURY_LEVEL} H@{INJURY_HEALINGROLL}}}" name="roll_HealingCheck"></button></div>
+                <div class="sheet-skill-value"><button type="roll" value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=a Healing Check}} {{rolltarget=[[(@{INJURY_HEALINGROLL} * [[@{COMBAT_ENDURANCE}]]) + ?{Target Modifier?|0}]]}} {{penalty=[[0]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=[[@{INJURY_HEALINGROLL} * [[@{COMBAT_ENDURANCE}]]}} {{note=@{INJURY_LOCATION} @{INJURY_SEVERITY}@{INJURY_LEVEL} H@{INJURY_HEALINGROLL}}}" name="roll_HealingCheck"></button></div>
                 <div class="sheet-check-col sheet-center">
                     <input type="checkbox" name="attr_INFECTED" value="0">
                 </div>
@@ -448,15 +448,15 @@
         <hr class="sheet-hr">
         <div class="sheet-row sheet-panel">
             <button type="roll"
-                    value="&{template:check-lt} {{character_name=@{NAME}}} {{rollname=Shock}} {{rolltarget=[[@{COMBAT_ENDURANCE}]]}} {{rollresult=[[[[@{UNIVERSAL_PENALTY}]]d6]]}} {{base=@{COMBAT_ENDURANCE}}} {{rolltype=[[@{UNIVERSAL_PENALTY}]]d6}} {{penalty=[[0]]}}"
+                    value="&{template:check-lt} {{character_name=@{NAME}}} {{rolldesc=Shock}} {{rolltarget=[[@{COMBAT_ENDURANCE}]]}} {{rollresult=[[[[@{UNIVERSAL_PENALTY}]]d6]]}} {{base=@{COMBAT_ENDURANCE}}} {{rolltype=[[@{UNIVERSAL_PENALTY}]]d6}} {{penalty=[[0]]}}"
                     name="roll_ShockCheck">Shock
             </button>
             <button type="roll"
-                    value="&{template:check-lt} {{character_name=@{NAME}}} {{rollname=Stumble}} {{rolltarget=[[@{COMBAT_AGL}]]}} {{rollresult=[[[[3d6]] + @{PHYSICAL_PENALTY}]]}} {{base=@{COMBAT_AGL}}} {{rolltype=3d6+[[@{PHYSICAL_PENALTY}]]}} {{penalty=[[0]]}}"
+                    value="&{template:check-lt} {{character_name=@{NAME}}} {{rolldesc=Stumble}} {{rolltarget=[[@{COMBAT_AGL}]]}} {{rollresult=[[[[3d6]] + @{PHYSICAL_PENALTY}]]}} {{base=@{COMBAT_AGL}}} {{rolltype=3d6+[[@{PHYSICAL_PENALTY}]]}} {{penalty=[[0]]}}"
                     name="roll_StumbleCheck">Stumble
             </button>
             <button type="roll"
-                    value="&{template:check-lt} {{character_name=@{NAME}}} {{rollname=Fumble}} {{rolltarget=[[@{COMBAT_DEX}]]}} {{rollresult=[[[[3d6]] + @{PHYSICAL_PENALTY}]]}} {{base=@{COMBAT_DEX}}} {{rolltype=3d6+[[@{PHYSICAL_PENALTY}]]}} {{penalty=[[0]]}}"
+                    value="&{template:check-lt} {{character_name=@{NAME}}} {{rolldesc=Fumble}} {{rolltarget=[[@{COMBAT_DEX}]]}} {{rollresult=[[[[3d6]] + @{PHYSICAL_PENALTY}]]}} {{base=@{COMBAT_DEX}}} {{rolltype=3d6+[[@{PHYSICAL_PENALTY}]]}} {{penalty=[[0]]}}"
                     name="roll_FumbleCheck">Fumble
             </button>
         </div>
@@ -508,7 +508,7 @@
         <input type="text" name="attr_PUNCH_WEAPON_NAME" class="sheet-skill-label" disabled="true" value="Punch">
         <input type="text" name="attr_PUNCH_WEAPON_WGT" class="sheet-skill-value" disabled="true" value="0">
         <input type="text" name="attr_PUNCH_WEAPON_WQ" class="sheet-skill-value" disabled="true" value="0">
-        <div class="sheet-skill-value"><button type="roll"  value="&{template:check-lt} {{character_name=@{NAME}}} {{rollname=Weapon Break: @{PUNCH_WEAPON_NAME}}} {{rolltarget=[[@{PUNCH_WEAPON_WQ}]]}} {{rollresult=[[3d6]]}} {{base=@{PUNCH_WEAPON_WQ}}} {{rolltype=3d6}} {{penalty=[[0]]}}" name="roll_UnarmedWeaponBreakCheck"></button></div>
+        <div class="sheet-skill-value"><button type="roll"  value="&{template:check-lt} {{character_name=@{NAME}}} {{rolldesc=Weapon Break: @{PUNCH_WEAPON_NAME}}} {{rolltarget=[[@{PUNCH_WEAPON_WQ}]]}} {{rollresult=[[3d6]]}} {{base=@{PUNCH_WEAPON_WQ}}} {{rolltype=3d6}} {{penalty=[[0]]}}" name="roll_UnarmedWeaponBreakCheck"></button></div>
         <input type="text" name="attr_PUNCH_WEAPON_ATK" class="sheet-skill-value" disabled="true" value="0">
         <input type="text" name="attr_PUNCH_WEAPON_DEF" class="sheet-skill-value" disabled="true" value="15">
         <input type="text" name="attr_PUNCH_WEAPON_HM" class="sheet-skill-value" disabled="true" value="0">
@@ -517,17 +517,17 @@
         <input type="text" name="attr_PUNCH_WEAPON_P" class="sheet-skill-value" disabled="true" value="0">
         <input type="text" name="attr_PUNCH_WEAPON_ML" class="sheet-skill-value" disabled="true" value="@{UNARMED_ML}">
         <input type="text" name="attr_PUNCH_WEAPON_AML" class="sheet-skill-value" disabled="true" value="[[@{PUNCH_WEAPON_ML} + @{PUNCH_WEAPON_ATK}]]">
-        <div class="sheet-skill-value"><button type="roll" value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname= a @{PUNCH_WEAPON_NAME} Attack}} {{rolltarget=[[@{PUNCH_WEAPON_AML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{PUNCH_WEAPON_AML}}} {{note=B(@{PUNCH_WEAPON_B}) E(@{PUNCH_WEAPON_E}) P(@{PUNCH_WEAPON_P})}}"
+        <div class="sheet-skill-value"><button type="roll" value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc= a @{PUNCH_WEAPON_NAME} Attack}} {{rolltarget=[[@{PUNCH_WEAPON_AML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{PUNCH_WEAPON_AML}}} {{note=B(@{PUNCH_WEAPON_B}) E(@{PUNCH_WEAPON_E}) P(@{PUNCH_WEAPON_P})}}"
                                                name="roll_UnarmedWeaponAMLSkillCheck"></button></div>
         <input type="text" name="attr_PUNCH_WEAPON_DML" class="sheet-skill-value" disabled="true" value="[[@{PUNCH_WEAPON_ML} + @{PUNCH_WEAPON_DEF}]]">
-        <div class="sheet-skill-value"><button type="roll" value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname= a @{PUNCH_WEAPON_NAME} Block}} {{rolltarget=[[@{PUNCH_WEAPON_DML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{PUNCH_WEAPON_DML}}}" name="roll_UnarmedWeaponDMLSkillCheck"></button></div>
+        <div class="sheet-skill-value"><button type="roll" value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc= a @{PUNCH_WEAPON_NAME} Block}} {{rolltarget=[[@{PUNCH_WEAPON_DML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{PUNCH_WEAPON_DML}}}" name="roll_UnarmedWeaponDMLSkillCheck"></button></div>
         <input type="text" name="attr_PUNCH_WEAPON_NOTE" class="sheet-skill-label">
     </div>
     <div>
         <input type="text" name="attr_KICK_WEAPON_NAME" class="sheet-skill-label" disabled="true" value="Kick">
         <input type="text" name="attr_KICK_WEAPON_WGT" class="sheet-skill-value" disabled="true" value="0">
         <input type="text" name="attr_KICK_WEAPON_WQ" class="sheet-skill-value" disabled="true" value="0">
-        <div class="sheet-skill-value"><button type="roll"  value="&{template:check-lt} {{character_name=@{NAME}}} {{rollname=Weapon Break: @{KICK_WEAPON_NAME}}} {{rolltarget=[[@{KICK_WEAPON_WQ}]]}} {{rollresult=[[3d6]]}} {{base=@{KICK_WEAPON_WQ}}} {{rolltype=3d6}} {{penalty=[[0]]}}" name="roll_UnarmedWeaponBreakCheck"></button></div>
+        <div class="sheet-skill-value"><button type="roll"  value="&{template:check-lt} {{character_name=@{NAME}}} {{rolldesc=Weapon Break: @{KICK_WEAPON_NAME}}} {{rolltarget=[[@{KICK_WEAPON_WQ}]]}} {{rollresult=[[3d6]]}} {{base=@{KICK_WEAPON_WQ}}} {{rolltype=3d6}} {{penalty=[[0]]}}" name="roll_UnarmedWeaponBreakCheck"></button></div>
         <input type="text" name="attr_KICK_WEAPON_ATK" class="sheet-skill-value" disabled="true" value="5">
         <input type="text" name="attr_KICK_WEAPON_DEF" class="sheet-skill-value" disabled="true" value="5">
         <input type="text" name="attr_KICK_WEAPON_HM" class="sheet-skill-value" disabled="true" value="0">
@@ -536,10 +536,10 @@
         <input type="text" name="attr_KICK_WEAPON_P" class="sheet-skill-value" disabled="true" value="0">
         <input type="text" name="attr_KICK_WEAPON_ML" class="sheet-skill-value" disabled="true" value="@{UNARMED_ML}">
         <input type="text" name="attr_KICK_WEAPON_AML" class="sheet-skill-value" disabled="true" value="[[@{KICK_WEAPON_ML} + @{KICK_WEAPON_ATK}]]">
-        <div class="sheet-skill-value"><button type="roll" value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname= a @{KICK_WEAPON_NAME} Attack}} {{rolltarget=[[@{KICK_WEAPON_AML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{KICK_WEAPON_AML}}} {{note=B(@{KICK_WEAPON_B}) E(@{KICK_WEAPON_E}) P(@{KICK_WEAPON_P})}}"
+        <div class="sheet-skill-value"><button type="roll" value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc= a @{KICK_WEAPON_NAME} Attack}} {{rolltarget=[[@{KICK_WEAPON_AML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{KICK_WEAPON_AML}}} {{note=B(@{KICK_WEAPON_B}) E(@{KICK_WEAPON_E}) P(@{KICK_WEAPON_P})}}"
                                                name="roll_UnarmedWeaponAMLSkillCheck"></button></div>
         <input type="text" name="attr_KICK_WEAPON_DML" class="sheet-skill-value" disabled="true" value="[[@{KICK_WEAPON_ML} + @{KICK_WEAPON_DEF}]]">
-        <div class="sheet-skill-value"><button type="roll" value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname= a @{KICK_WEAPON_NAME} Block}} {{rolltarget=[[@{KICK_WEAPON_DML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{KICK_WEAPON_DML}}}" name="roll_UnarmedWeaponDMLSkillCheck"></button></div>
+        <div class="sheet-skill-value"><button type="roll" value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc= a @{KICK_WEAPON_NAME} Block}} {{rolltarget=[[@{KICK_WEAPON_DML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{KICK_WEAPON_DML}}}" name="roll_UnarmedWeaponDMLSkillCheck"></button></div>
         <input type="text" name="attr_KICK_WEAPON_NOTE" class="sheet-skill-label">
     </div>
     <fieldset class="repeating_weapon">
@@ -547,7 +547,7 @@
             <input type="text" name="attr_WEAPON_NAME" class="sheet-skill-label">
             <input type="text" name="attr_WEAPON_WGT" class="sheet-skill-value" value="0">
             <input type="text" name="attr_WEAPON_WQ" class="sheet-skill-value" value="0">
-            <div class="sheet-skill-value"><button type="roll"  value="&{template:check-lt} {{character_name=@{NAME}}} {{rollname=Weapon Break: @{WEAPON_NAME}}} {{rolltarget=[[@{WEAPON_WQ}]]}} {{rollresult=[[3d6]]}} {{base=@{WEAPON_WQ}}} {{rolltype=3d6}} {{penalty=[[0]]}}" name="roll_WeaponBreakCheck"></button></div>
+            <div class="sheet-skill-value"><button type="roll"  value="&{template:check-lt} {{character_name=@{NAME}}} {{rolldesc=Weapon Break: @{WEAPON_NAME}}} {{rolltarget=[[@{WEAPON_WQ}]]}} {{rollresult=[[3d6]]}} {{base=@{WEAPON_WQ}}} {{rolltype=3d6}} {{penalty=[[0]]}}" name="roll_WeaponBreakCheck"></button></div>
             <input type="text" name="attr_WEAPON_ATK" class="sheet-skill-value" value="0">
             <input type="text" name="attr_WEAPON_DEF" class="sheet-skill-value" value="0">
             <input type="text" name="attr_WEAPON_HM" class="sheet-skill-value" value="0">
@@ -557,9 +557,9 @@
             <input type="text" name="attr_WEAPON_ML" class="sheet-skill-value" value="0">
             <input type="text" name="attr_WEAPON_AML" class="sheet-skill-value" disabled="true" value="@{WEAPON_ML} + @{WEAPON_ATK}">
             <div class="sheet-skill-value"><button type="roll"
-                    value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname= a @{WEAPON_NAME} Attack}} {{rolltarget=[[@{WEAPON_AML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{WEAPON_AML}}} {{note=B(@{WEAPON_B}) E(@{WEAPON_E}) P(@{WEAPON_P})}}" name="roll_WeaponAMLSkillCheck"></button></div>
+                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc= a @{WEAPON_NAME} Attack}} {{rolltarget=[[@{WEAPON_AML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{WEAPON_AML}}} {{note=B(@{WEAPON_B}) E(@{WEAPON_E}) P(@{WEAPON_P})}}" name="roll_WeaponAMLSkillCheck"></button></div>
             <input type="text" name="attr_WEAPON_DML" class="sheet-skill-value" disabled="true" value="@{WEAPON_ML} + @{WEAPON_DEF}">
-            <div class="sheet-skill-value"><button type="roll" value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname= a @{WEAPON_NAME} Block}} {{rolltarget=[[@{WEAPON_DML} - [[(@{PHYSICAL_PENALTY})*5]]]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{WEAPON_DML}}} {{note=WQ @{WEAPON_WQ}}}" name="roll_WeaponDMLSkillCheck"></button></div>
+            <div class="sheet-skill-value"><button type="roll" value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc= a @{WEAPON_NAME} Block}} {{rolltarget=[[@{WEAPON_DML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{WEAPON_DML}}} {{note=WQ @{WEAPON_WQ}}}" name="roll_WeaponDMLSkillCheck"></button></div>
             <input type="text" name="attr_WEAPON_NOTE" class="sheet-skill-label">
         </div>
     </fieldset>
@@ -756,7 +756,7 @@
                 <input type="text" name="attr_SPELL_CONVOCATION" class="sheet-skill-label">
                 <input type="text" name="attr_SPELL_LEVEL" class="sheet-skill-value" value="0">
                 <input type="text" name="attr_SPELL_EML" class="sheet-skill-value" value="0">
-                <div class="sheet-skill-value"><button type="roll" value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=to Cast @{SPELL_NAME}}} {{rolltarget=[[@{SPELL_EML} - [[(@{UNIVERSAL_PENALTY})*5]]]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{SPELL_EML}}}" name="roll_SpellCastCheck"></button></div>
+                <div class="sheet-skill-value"><button type="roll" value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=to Cast @{SPELL_NAME}}} {{rolltarget=[[@{SPELL_EML} - [[(@{UNIVERSAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{SPELL_EML}}}" name="roll_SpellCastCheck"></button></div>
                 <input type="text" name="attr_SPELL_NOTE" class="sheet-skill-note">
             </div>
         </fieldset>
@@ -777,7 +777,7 @@
                 <input type="text" name="attr_RITUAL_CONVOCATION" class="sheet-skill-label">
                 <input type="text" name="attr_RITUAL_LEVEL" class="sheet-skill-value" value="0">
                 <input type="text" name="attr_RITUAL_EML" class="sheet-skill-value" value="0">
-                <div class="sheet-skill-value"><button type="roll" value="&{template:skillcheck} {{character_name=@{NAME}}} {{rollname=to Cast @{RITUAL_NAME}}} {{rolltarget=[[@{RITUAL_EML} - [[(@{UNIVERSAL_PENALTY})*5]]]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100+?{Modifier?|0}]]}} {{diemod=[[?{Modifier?|0}]]}} {{ml=@{RITUAL_EML}}}" name="roll_RitualCheck"></button></div>
+                <div class="sheet-skill-value"><button type="roll" value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=to Cast @{RITUAL_NAME}}} {{rolltarget=[[@{RITUAL_EML} - [[(@{UNIVERSAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{UNIVERSAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{RITUAL_EML}}}" name="roll_RitualCheck"></button></div>
                 <input type="text" name="attr_RITUAL_NOTE" class="sheet-skill-note">
             </div>
         </fieldset>
@@ -785,69 +785,45 @@
 </div>
 
 <!-- ROLL TEMPLATES/-->
-<rolltemplate class="sheet-rolltemplate-roll-test sheet-roll-default">
+
+<!--
+props:
+* character_name: Name of chaaracter performing action.
+* rolldesc: Text describing roll in header.
+* penalty:  Autocalculated in value from Universal or Physical Penalty. Applied in rolltarget
+* targetmod:  Dieroll query in each roll, defaults to 0.  Applied in rolltarget.
+* ml:  Unmodified target of the roll.
+* rolltarget:  Actual target of roll, derived from 'ml + (penalty * 5) + targetmod'
+* rollresult: Die roll result.
+* note: Optional property for any additional text at the end of table.
+
+/-->
+<rolltemplate class="sheet-rolltemplate-rollcheck">
     <table>
         <tr>
-            <th>TEST ROLL!</th>
+            <th><span class="tcat">{{character_name}}:  {{rolldesc}}</span></th>
         </tr>
-    </table>
-</rolltemplate>
-
-<rolltemplate class="sheet-rolltemplate-skillcheck">
-    <table>
         <tr>
-            <th><span class="tcat">{{character_name}} Rolls {{rollname}}</span></th>
+            <td><span class="sheet-tcat">Target Mods:</span>
+                ML({{ml}}),
+                {{#penalty}}Penalty(-{{penalty}}), {{/penalty}}
+                {{#targetmod}}Mod({{targetmod}}){{/targetmod}}
+            </td>
         </tr>
-
-        {{#rollGreater() penalty 0}}
-        <tr>
-            <td><span class="tcat">Target: </span>({{ml}}-{{penalty}}) = {{rolltarget}}</td>
-        </tr>
-        {{/rollGreater() penalty 0}}
-        {{#^rollGreater() penalty 0}}
-        <tr>
-            <td><span class="tcat">Target: </span>{{rolltarget}}</td>
-        </tr>
-        {{/^rollGreater() penalty 0}}
-        {{#^penalty}}
-        <tr>
-            <td><span class="tcat">Target: </span>{{rolltarget}}</td>
-        </tr>
-        {{/^penalty}}
-
-        {{#^diemod}}
-        <tr>
-            <td><span class="tcat">Roll(1d100): </span> {{rollresult}}</td>
-        </tr>
-        {{/^diemod}}
-        {{#rollTotal() diemod 0}}
-        <tr>
-            <td><span class="tcat">Roll(1d100): </span> {{rollresult}}</td>
-        </tr>
-        {{/rollTotal() diemod 0}}
-        {{#rollGreater() diemod 0}}
-        <tr>
-            <td><span class="tcat">Roll(1d100+{{diemod}}): </span> {{rollresult}}</td>
-        </tr>
-        {{/rollGreater() diemod 0}}
-        {{#rollLess() diemod 0}}
-        <tr>
-            <td><span class="tcat">Roll(1d100{{diemod}}): </span> {{rollresult}}</td>
-        </tr>
-        {{/rollLess() diemod 0}}
-
+        <tr><td><span class="sheet-tcat">Target:</span> {{rolltarget}}</td></tr>
+        <tr><td><span class="sheet-tcat">Roll(1d100):</span> {{rollresult}}</td></tr>
 
         {{#^rollGreater() rollresult rolltarget}}
-            {{#rollWasCrit() rollresult }}
-            <tr>
-                <td class="sheet-crit-success">Critical Success!!</td>
-            </tr>
-            {{/rollWasCrit() rollresult }}
-            {{#^rollWasCrit() rollresult }}
-            <tr>
-                <td class="sheet-success">Marginal Success.</td>
-            </tr>
-            {{/^rollWasCrit() rollresult }}
+        {{#rollWasCrit() rollresult }}
+        <tr>
+            <td class="sheet-crit-success">Critical Success!!</td>
+        </tr>
+        {{/rollWasCrit() rollresult }}
+        {{#^rollWasCrit() rollresult }}
+        <tr>
+            <td class="sheet-success">Marginal Success.</td>
+        </tr>
+        {{/^rollWasCrit() rollresult }}
         {{/^rollGreater() rollresult rolltarget}}
 
         {{#rollGreater() rollresult rolltarget}}
@@ -863,19 +839,23 @@
         {{/^rollWasCrit() rollresult }}
         {{/rollGreater() rollresult rolltarget}}
 
+        
         {{#note}}
-            <tr>
-                <td class="sheet-center">{{note}}</td>
-            </tr>
+        <tr>
+            <td class="sheet-center">{{note}}</td>
+        </tr>
         {{/note}}
+        
     </table>
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-check-lt">
     <table>
         <tr>
-            <th><span class="tcat">{{character_name}} Rolls {{rollname}}</span></th>
+            <th><span class="tcat">{{character_name}} Rolls {{rolldesc}}</span></th>
         </tr>
+        
+        
         {{#rollGreater() penalty 0}}
         <tr>
             <td><span class="tcat">Target: </span>({{base}}-{{penalty}}) = {{rolltarget}}</td>
