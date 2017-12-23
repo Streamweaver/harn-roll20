@@ -99,6 +99,13 @@ input[type=number]::-webkit-inner-spin-button {
     display: inline-block;
 }
 
+.sheet-subheader {
+    border-bottom: 1px solid #9b7d7b;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 0;
+}
+
 /* New Styles */
 .sheet-row {
     position: relative;
@@ -133,6 +140,7 @@ input[type=number]::-webkit-inner-spin-button {
     margin-bottom: 2px;
     padding: 0;
 }
+
 
 /* POSITIONING */
 
@@ -310,7 +318,6 @@ input[type=number]::-webkit-inner-spin-button {
 
 /* ROLL TEMPLATES */
 .sheet-rolltemplate-check-lt table,
-.sheet-rolltemplate-check-gt table,
 .sheet-rolltemplate-rollcheck table {
     width: 100%;
     border: 1px solid;
@@ -320,7 +327,6 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .sheet-rolltemplate-check-lt th,
-.sheet-rolltemplate-check-gt th,
 .sheet-rolltemplate-rollcheck th {
     background-color: #313131;
     color: #ffffff;
@@ -331,32 +337,27 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .sheet-rolltemplate-check-lt .sheet-tcat,
-.sheet-rolltemplate-check-gt .sheet-tcat,
 .sheet-rolltemplate-rollcheck .sheet-tcat {
     font-weight: bold;
 }
 
 .sheet-rolltemplate-check-lt td,
-.sheet-rolltemplate-check-gt td,
 .sheet-rolltemplate-rollcheck td {
     padding: 5px;
     border-bottom: 1px solid black;
 }
 
 .sheet-rolltemplate-check-lt tr:nth-child(odd),
-.sheet-rolltemplate-check-gt tr:nth-child(odd),
 .sheet-rolltemplate-rollcheck tr:nth-child(odd) {
     background-color: #FDF5E6;
 }
 
 .sheet-rolltemplate-check-lt tr:nth-child(even),
-.sheet-rolltemplate-check-gt tr:nth-child(even),
 .sheet-rolltemplate-rollcheck tr:nth-child(even) {
     background-color: #FFFAF0;
 }
 
 .sheet-rolltemplate-check-lt .inlinerollresult,
-.sheet-rolltemplate-check-gt .inlinerollresult,
 .sheet-rolltemplate-rollcheck .inlinerollresult  {
     display: inline-block;
     min-width: 1.5em;
@@ -365,25 +366,28 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .sheet-rolltemplate-check-lt .inlinerollresult.fullcrit,
-.sheet-rolltemplate-check-gt .inlinerollresult.fullcrit,
 .sheet-rolltemplate-rollcheck .inlinerollresult.fullcrit {
     border: 2px solid #3FB315;
 }
 
 .sheet-rolltemplate-check-lt .inlinerollresult.fullfail,
-.sheet-rolltemplate-check-gt .inlinerollresult.fullfail,
 .sheet-rolltemplate-rollcheck .inlinerollresult.fullfail {
     border: 2px solid #B31515;
 }
 
 .sheet-rolltemplate-check-lt .inlinerollresult.importantroll,
-.sheet-rolltemplate-check-gt .inlinerollresult.importantroll,
 .sheet-rolltemplate-rollcheck .inlinerollresult.importantroll {
     border: 2px solid #4A57ED;
 }
 
+.sheet-rolltemplate-check-lt .sheet-note,
+.sheet-rolltemplate-rollcheck .sheet-note {
+    text-align: center;
+    border: 2px solid 	#778899;
+    background-color: #DCDCDC;
+}
+
 .sheet-rolltemplate-check-lt .sheet-success,
-.sheet-rolltemplate-check-gt .sheet-success,
 .sheet-rolltemplate-rollcheck .sheet-success {
     border: 2px solid #3FB315;
     background-color: #99FF99;
@@ -392,7 +396,6 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .sheet-rolltemplate-check-lt .sheet-failure,
-.sheet-rolltemplate-check-gt .sheet-failure,
 .sheet-rolltemplate-rollcheck .sheet-failure {
     border: 2px solid #CC6600;
     background-color: #FFCC99;
@@ -401,7 +404,6 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .sheet-rolltemplate-check-lt .sheet-crit-success,
-.sheet-rolltemplate-check-gt .sheet-crit-success,
 .sheet-rolltemplate-rollcheck .sheet-crit-success {
     border: 2px solid #009900;
     background-color: #00CC00;
@@ -410,10 +412,82 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .sheet-rolltemplate-check-lt .sheet-crit-failure,
-.sheet-rolltemplate-check-gt .sheet-crit-failure,
 .sheet-rolltemplate-rollcheck .sheet-crit-failure {
     border: 2px solid #990000;
     background-color: #CC0000;
     text-align: center;
     font-weight: bold;
+}
+
+/* checkbox and radio styles */
+/* Hide actual radio/checkbox */
+input[type="radio"],
+input[type="checkbox"]
+{
+    opacity: 0;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 5px;
+    left: 6px;
+    margin: -10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Fake radio/checkbox */
+input[type="radio"] + span::before,
+input[type="checkbox"] + span::before
+{
+    margin-right: 4px;
+    border: solid 1px #a8a8a8;
+    line-height: 14px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+
+    -moz-box-shadow: 0 0 2px #ccc;
+    -webkit-box-shadow: 0 0 2px #ccc;
+    box-shadow: 0 0 2px #ccc;
+
+    background: #f6f6f6;
+    background: -moz-radial-gradient(#f6f6f6, #dfdfdf);
+    background: -webkit-radial-gradient(#f6f6f6, #dfdfdf);
+    background: -ms-radial-gradient(#f6f6f6, #dfdfdf);
+    background: -o-radial-gradient(#f6f6f6, #dfdfdf);
+    background: radial-gradient(#f6f6f6, #dfdfdf);
+}
+
+/* Fake radio */
+input[type="radio"] + span::before
+{
+    content: "";
+    width: 12px;
+    height: 12px;
+    font-size: 24px;
+
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+input[type="radio"]:checked + span::before
+{
+    content: "•";
+}
+
+/* Fake checkbox */
+input[type="checkbox"] + span::before
+{
+    content: "";
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+input[type="checkbox"]:checked + span::before
+{
+    content: "✓";
 }
