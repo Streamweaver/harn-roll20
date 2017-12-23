@@ -64,6 +64,14 @@
             <div class="sheet-stat-label">Weight</div>
             <input type="text" name="attr_WEIGHT" class="sheet-stat-value">
         </div>
+        <div>
+            <div class="sheet-stat-label">Skin</div>
+            <input type="text" name="attr_COMPLEXION" class="sheet-stat-value">
+            <div class="sheet-stat-label">Hair</div>
+            <input type="text" name="attr_HAIR_COLORS" class="sheet-stat-value">
+            <div class="sheet-stat-label">Eyes</div>
+            <input type="text" name="attr_EYE_COLOR" class="sheet-stat-value">
+        </div>
     </div>
 
     <div class="sheet-stat-col">
@@ -137,6 +145,14 @@
         <div>
             <div class="sheet-info-label">Clanhead</div>
             <input type="text" name="attr_CLANHEAD" class="sheet-profile-input">
+        </div>
+        <div>
+            <div class="sheet-info-label">Mental</div>
+            <input type="text" name="attr_MENTAL" class="sheet-profile-input">
+        </div>
+        <div>
+            <div class="sheet-info-label">Physical</div>
+            <input type="text" name="attr_PHYSICAL" class="sheet-profile-input">
         </div>
     </div>
 </div>
@@ -372,7 +388,7 @@
         </div>
         <div>
             <div class="sheet-combat-label">Endurance</div>
-            <input type="text" name="attr_COMBAT_ENDURANCE" disabled="true" class="sheet-stat-value" value="floor((@{STR} + @{STA} + @{WIL})/3)">
+            <input type="text" name="attr_COMBAT_ENDURANCE" class="sheet-stat-value" value="0" readonly>
         </div>
         <div>
             <div class="sheet-combat-label">Dexterity</div>
@@ -440,9 +456,9 @@
                 </select>
                 <input type="text" name="attr_INJURY_LEVEL" class="sheet-skill-value" value="0">
                 <input type="text" name="attr_INJURY_HEALINGROLL" class="sheet-skill-value" value="0">
-                <div class="sheet-skill-value"><button type="roll" value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=rolls a Healing Check}} {{rolltarget=[[(@{INJURY_HEALINGROLL} * [[@{COMBAT_ENDURANCE}]]) + ?{Target Modifier?|0}]]}} {{penalty=[[0]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=[[@{INJURY_HEALINGROLL} * [[@{COMBAT_ENDURANCE}]]]]}} {{note=@{INJURY_LOCATION} @{INJURY_SEVERITY}@{INJURY_LEVEL} H@{INJURY_HEALINGROLL}}}" name="roll_HealingCheck"></button></div>
+                <div class="sheet-skill-value"><button type="roll" value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=rolls a Healing Check}} {{rolltarget=[[(@{INJURY_HEALINGROLL} * [[@{COMBAT_ENDURANCE}]]) + ?{Target Modifier?|0}]]}} {{penalty=[[0]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=[[@{INJURY_HEALINGROLL} * [[@{COMBAT_ENDURANCE}]]]]}} {{note=@{INJURY_LOCATION} @{INJURY_SEVERITY}@{INJURY_LEVEL} H@{INJURY_HEALINGROLL} Inf: @{INJURY_INFECTED}}}" name="roll_HealingCheck"></button></div>
                 <div class="sheet-check-col sheet-center">
-                    <input type="checkbox" name="attr_INJURY_INFECTED" value="0" checked="false"><span></span>
+                    <input type="checkbox" name="attr_INJURY_INFECTED"><span></span>
                 </div>
             </div>
         </fieldset>
@@ -465,19 +481,17 @@
     <div class="sheet-col">
         <h4 class="sheet-section-head">Load Carried</h4>
         <div>
-            <input type="text" name="attr_LOAD_WEAPONS" class="sheet-skill-label" value="Weapons">
+            <input type="text" name="attr_LOAD_WEAPONS" class="sheet-skill-label" value="Weapons" readonly>
             <input type="text" name="attr_LOAD_WEAPONS_TOTAL" class="sheet-stat-value" value="0" readonly>
         </div>
         <div>
-            <input type="text" name="attr_LOAD_ARMOR" class="sheet-skill-label" value="Armor">
+            <input type="text" name="attr_LOAD_ARMOR" class="sheet-skill-label" value="Armor" readonly>
             <input type="text" name="attr_LOAD_ARMOR_TOTAL" class="sheet-stat-value" value="0" class="sheet-number-value" readonly>
         </div>
-        <fieldset class="repeating_load">
-            <div>
-                <input type="text" name="attr_ITEM_NAME" class="sheet-skill-label">
-                <input type="text" name="attr_ITEM_WEIGHT" class="sheet-stat-value" value="0">
-            </div>
-        </fieldset>
+        <div>
+            <input type="text" name="attr_LOAD_INVENTORY" class="sheet-skill-label" value="Inventory" readonly>
+            <input type="text" name="attr_LOAD_INVENTORY_TOTAL" class="sheet-stat-value" value="0" class="sheet-number-value" readonly>
+        </div>
         <div>
             <div class="sheet-skill-label sheet-skill-header sheet-right">Total Weight:</div>
             <input type="text" name="attr_LOAD_TOTAL" class="sheet-stat-value" value="0" readonly>
@@ -737,6 +751,15 @@
             <input type="text" name="attr_FOOT_F" class="sheet-skill-value" value="0">
         </div>
     </div>
+    <div class="sheet-col">
+        <h4 class="sheet-section-head">Inventory</h4>
+        <div class="sheet-skill-header sheet-skill-label">Item</div>
+        <div class="sheet-skill-header sheet-skill-value sheet-center">WGT</div>
+        <fieldset class="repeating_inventoryitems">
+            <input type="text" name="attr_INVENTORY_NAME" class="sheet-skill-label">
+            <input type="text" name="attr_INVENTORY_WGT" class="sheet-skill-value" value="0">
+        </fieldset>
+    </div>
 </div>
 <hr class="sheet-hr">
 <div class="sheet-row">
@@ -819,6 +842,7 @@ props:
 * rolltarget:  Actual target of roll, derived from 'ml + (penalty * 5) + targetmod'
 * rollresult: Die roll result.
 * note: Optional property for any additional text at the end of table.
+* infection:  sepcial row just for infected wounds, value either 0 or on or not present.
 
 /-->
 <rolltemplate class="sheet-rolltemplate-rollcheck">
@@ -929,42 +953,37 @@ on("change:repeating_injury:injury_level remove:repeating_injury sheet:opened", 
 
 </script>
 
+<!-- ENDURANCE /-->
+<script type="text/worker">
+    on("change:str change:sta change:wil sheet:opened", function() {
+        getAttrs(["STR", "STA", "WIL"], function(values) {
+            var statTotal = parseInt(values["STR"])||0;
+            statTotal += parseInt(values["STA"])||0;
+            statTotal += parseInt(values["WIL"])||0;
+
+            var endurance = parseInt(statTotal / 3)||0;
+            setAttrs({
+                "COMBAT_ENDURANCE": endurance
+        });
+        });
+    });
+</script>
+
 <!-- LOAD AND ENCUMBRANCE /-->
 <script type="text/worker">
-    on("change:repeating_load:item_weight remove:repeating_load change:load_weapons_total change:load_armor_total sheet:opened", function() {
-	getSectionIDs("repeating_load", function(IDArray) {
-		var fieldNames = [];
-        for (var i=0; i < IDArray.length; i++) {
-			fieldNames.push("repeating_load_" + IDArray[i] + "_ITEM_WEIGHT");
-		}
+    on("change:load_weapons_total change:load_armor_total change:load_inventory_total change:combat_endurance sheet:opened", function() {
+        var total = 0.0;
+        getAttrs(["LOAD_ARMOR_TOTAL", "LOAD_WEAPONS_TOTAL", "LOAD_INVENTORY_TOTAL", "COMBAT_ENDURANCE"], function(values) {
+            total += parseFloat(values["LOAD_ARMOR_TOTAL"])||0.0;
+            total += parseFloat(values["LOAD_WEAPONS_TOTAL"])||0.0;
+            total += parseFloat(values["LOAD_INVENTORY_TOTAL"])||0.0;
 
-        var total = 0;
-        getAttrs(["LOAD_ARMOR_TOTAL", "LOAD_WEAPONS_TOTAL"], function(values) {
-              total += parseInt(values["LOAD_ARMOR_TOTAL"])||0;
-              total += parseInt(values["LOAD_WEAPONS_TOTAL"])||0;
+            setAttrs({
+                "LOAD_TOTAL": parseInt(total)||0,
+                "ENCUMBRANCE": parseInt(total/values["COMBAT_ENDURANCE"])||0
+            });
         });
-
-        var endStats = 0;
-        getAttrs(["STR", "STA", "WIL"], function(values) {
-              endStats += parseInt(values["STR"])||0;
-              endStats += parseInt(values["STA"])||0;
-              endStats += parseInt(values["WIL"])||0;
-        });
-
-        getAttrs(fieldNames, function(values) {
-			for (var i=0; i < IDArray.length; i++) {
-				total += parseInt(values["repeating_load_" + IDArray[i] + "_ITEM_WEIGHT"])||0;
-			}
-
-			var enc = parseInt(total / parseInt(endStats / 3))||0;
-
-			setAttrs({
-				"LOAD_TOTAL": total,
-				"ENCUMBRANCE": enc
-			});
-        });
-	});
-});
+    });
 </script>
 
 <!-- WEAPON LOAD TOTALS /-->
@@ -1006,6 +1025,29 @@ on("change:repeating_injury:injury_level remove:repeating_injury sheet:opened", 
 			total.toFixed(2);
 			setAttrs({
 				"LOAD_ARMOR_TOTAL": total
+			});
+        });
+	});
+});
+</script>
+
+<!-- ITEM LOAD TOTALS /-->
+<script type="text/worker">
+    on("change:repeating_inventoryitems:inventory_wgt remove:repeating_inventoryitems  sheet:opened", function() {
+	getSectionIDs("repeating_inventoryitems", function(IDArray) {
+		var fieldNames = [];
+        for (var i=0; i < IDArray.length; i++) {
+			fieldNames.push("repeating_inventoryitems_" + IDArray[i] + "_INVENTORY_WGT");
+		}
+
+        var total = 0.0;
+        getAttrs(fieldNames, function(values) {
+			for (var i=0; i < IDArray.length; i++) {
+				total += parseFloat(values["repeating_inventoryitems_" + IDArray[i] + "_INVENTORY_WGT"])||0.0;
+			}
+			total.toFixed(2);
+			setAttrs({
+				"LOAD_INVENTORY_TOTAL": total
 			});
         });
 	});
