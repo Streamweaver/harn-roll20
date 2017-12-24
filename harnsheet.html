@@ -459,6 +459,7 @@
                 <div class="sheet-skill-value"><button type="roll" value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=rolls a Healing Check}} {{rolltarget=[[(@{INJURY_HEALINGROLL} * [[@{COMBAT_ENDURANCE}]]) + ?{Target Modifier?|0}]]}} {{penalty=[[0]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=[[@{INJURY_HEALINGROLL} * [[@{COMBAT_ENDURANCE}]]]]}} {{note=@{INJURY_LOCATION} @{INJURY_SEVERITY}@{INJURY_LEVEL} H@{INJURY_HEALINGROLL} Inf: @{INJURY_INFECTED}}}" name="roll_HealingCheck"></button></div>
                 <div class="sheet-check-col sheet-center">
                     <input type="checkbox" name="attr_INJURY_INFECTED"><span></span>
+                    <input type="hidden" name="attr_INJURY_INFECTED_FEEDBACK" value="0" readonly>
                 </div>
             </div>
         </fieldset>
@@ -572,7 +573,7 @@
             <input type="text" name="attr_WEAPON_ML" class="sheet-skill-value" value="0">
             <input type="text" name="attr_WEAPON_AML" class="sheet-skill-value" disabled="true" value="@{WEAPON_ML} + @{WEAPON_ATK}">
             <div class="sheet-skill-value"><button type="roll"
-                    value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=attacks with a @{WEAPON_NAME}}} {{rolltarget=[[@{WEAPON_AML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{WEAPON_AML}}} {{note=B(@{WEAPON_B}) E(@{WEAPON_E}) P(@{WEAPON_P})}}" name="roll_WeaponAMLSkillCheck"></button></div>
+                                                   value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=attacks with a @{WEAPON_NAME}}} {{rolltarget=[[@{WEAPON_AML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{WEAPON_AML}}} {{note=B(@{WEAPON_B}) E(@{WEAPON_E}) P(@{WEAPON_P})}}" name="roll_WeaponAMLSkillCheck"></button></div>
             <input type="text" name="attr_WEAPON_DML" class="sheet-skill-value" disabled="true" value="@{WEAPON_ML} + @{WEAPON_DEF}">
             <div class="sheet-skill-value"><button type="roll" value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=blocks with a @{WEAPON_NAME}}} {{rolltarget=[[@{WEAPON_DML} - [[(@{PHYSICAL_PENALTY})*5]] + ?{Target Modifier?|0}]]}} {{penalty=[[(@{PHYSICAL_PENALTY})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=@{WEAPON_DML}}} {{note=WQ @{WEAPON_WQ}}}" name="roll_WeaponDMLSkillCheck"></button></div>
             <input type="text" name="attr_WEAPON_NOTE" class="sheet-skill-label">
@@ -886,13 +887,13 @@ props:
         {{/^rollWasCrit() rollresult }}
         {{/rollGreater() rollresult rolltarget}}
 
-        
+
         {{#note}}
         <tr>
             <td class="sheet-note">{{note}}</td>
         </tr>
         {{/note}}
-        
+
     </table>
 </rolltemplate>
 
@@ -901,8 +902,8 @@ props:
         <tr>
             <th><span class="tcat">{{character_name}} {{rolldesc}}</span></th>
         </tr>
-        
-        
+
+
         {{#rollGreater() penalty 0}}
         <tr>
             <td><span class="tcat">Target: </span>({{base}}-{{penalty}}) = {{rolltarget}}</td>
@@ -951,6 +952,17 @@ on("change:repeating_injury:injury_level remove:repeating_injury sheet:opened", 
 	});
 });
 
+</script>
+
+<!-- INJURY INFECTED FEEDBACK /-->
+<script type="text/worker">
+    on("change:repeating_injury:injury_infected sheet:opened", function() {
+        getAttrs(["repeating_injury_INJURY_INFECTED], function(values) {
+            setAttrs({
+                repeating_injury_INJURY_INFECTED_FEEDBACK: parseInt(values.repeating_injury_INJURY_INFECTED)||1
+            });
+        });
+    });
 </script>
 
 <!-- ENDURANCE /-->
