@@ -423,7 +423,7 @@
         </div>
         <div>
             <div class="sheet-combat-label sheet-font-heavy">Universal</div>
-            <input type="text" disabled="true" value="@{INJURY_TOTAL} + @{FATIGUE_TOTAL}" class="sheet-stat-value" name="attr_UNIVERSAL_PENALTY">
+            <input type="text" value="0" class="sheet-stat-value" name="attr_UNIVERSAL_PENALTY" readonly>
         </div>
         <div>
             <div class="sheet-combat-label sheet-font-light">Encumb.</div>
@@ -431,8 +431,7 @@
         </div>
         <div>
             <div class="sheet-combat-label sheet-font-heavy">Physical</div>
-            <input type="text" name="attr_PHYSICAL_PENALTY" class="sheet-stat-value" disabled="true"
-                   value="@{UNIVERSAL_PENALTY} + @{ENCUMBRANCE}">
+            <input type="text" name="attr_PHYSICAL_PENALTY" class="sheet-stat-value" value="@{ENCUMBRANCE} + @{UNIVERSAL_PENALTY}" disabled="true">
         </div>
     </div>
     <div class="sheet-col">
@@ -499,7 +498,7 @@
         </div>
         <div>
             <div class="sheet-skill-label sheet-right">Mounted? </div>
-            <div class="sheet-stat-value sheet-center"><input type="checkbox" name="attr_IS_MOUNTED"><span></span></div>
+            <div class="sheet-stat-value sheet-center"><input type="checkbox" name="attr_IS_MOUNTED"><span></span>
         </div>
     </div>
 </div>
@@ -998,16 +997,32 @@ on("change:repeating_injury:injury_level remove:repeating_injury sheet:opened", 
 
 <!-- LOAD AND ENCUMBRANCE /-->
 <script type="text/worker">
-    on("change:load_weapons_total change:load_armor_total change:load_inventory_total change:combat_endurance sheet:opened", function() {
+    on("change:load_weapons_total change:load_armor_total change:load_inventory_total change:combat_endurance change:is_mounted sheet:opened", function() {
         var total = 0.0;
-        getAttrs(["LOAD_ARMOR_TOTAL", "LOAD_WEAPONS_TOTAL", "LOAD_INVENTORY_TOTAL", "COMBAT_ENDURANCE"], function(values) {
+        getAttrs(["LOAD_ARMOR_TOTAL", "LOAD_WEAPONS_TOTAL", "LOAD_INVENTORY_TOTAL", "COMBAT_ENDURANCE", "IS_MOUNTED"], function(values) {
             total += parseFloat(values["LOAD_ARMOR_TOTAL"])||0.0;
             total += parseFloat(values["LOAD_WEAPONS_TOTAL"])||0.0;
             total += parseFloat(values["LOAD_INVENTORY_TOTAL"])||0.0;
 
+            var encumbrance = Math.round(total/values["COMBAT_ENDURANCE"])||0;
+            if(values.IS_MOUNTED != 0) { encumbrance = Math.round(encumbrance/2)};
             setAttrs({
                 "LOAD_TOTAL": parseInt(total)||0,
-                "ENCUMBRANCE": Math.round(total/values["COMBAT_ENDURANCE"])||0
+                "ENCUMBRANCE": encumbrance
+            });
+        });
+    });
+</script>
+
+<!-- UNIVERSAL PENALTY /-->
+<script type="text/worker">
+    on("change:is_mounted change:injury_total change:fatigue_total sheet:opened", function() {
+        getAttrs(["INJURY_TOTAL", "FATIGUE_TOTAL", "UNIVERSAL_PENALTY", "IS_MOUNTED"], function(values) {
+            var fatigue = parseInt(values.FATIGUE_TOTAL);
+            if(values.IS_MOUNTED == "on") { fatigue = Math.round(fatigue/2)};
+            var uPenalty = parseInt(values.INJURY_TOTAL) + fatigue;
+            setAttrs({
+                "UNIVERSAL_PENALTY": uPenalty
             });
         });
     });
