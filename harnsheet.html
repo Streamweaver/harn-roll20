@@ -456,7 +456,7 @@
                 </select>
                 <input type="text" name="attr_INJURY_LEVEL" class="sheet-skill-value" value="0">
                 <input type="text" name="attr_INJURY_HEALINGROLL" class="sheet-skill-value" value="0">
-                <div class="sheet-skill-value"><button type="roll" value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=rolls a Healing Check}} {{rolltarget=[[(@{INJURY_HEALINGROLL} * [[@{COMBAT_ENDURANCE}]]) + ?{Target Modifier?|0}]]}} {{penalty=[[0]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=[[@{INJURY_HEALINGROLL} * [[@{COMBAT_ENDURANCE}]]]]}} {{note=@{INJURY_LOCATION} @{INJURY_SEVERITY}@{INJURY_LEVEL} H@{INJURY_HEALINGROLL} Inf: @{INJURY_INFECTED}}}" name="roll_HealingCheck"></button></div>
+                <div class="sheet-skill-value"><button type="roll" value="&{template:rollcheck} {{character_name=@{NAME}}} {{rolldesc=rolls a Healing Check}} {{infected=[[@{INJURY_INFECTED_FEEDBACK}]]}} {{rolltarget=[[(@{INJURY_HEALINGROLL} * [[@{COMBAT_ENDURANCE}]]) + ?{Target Modifier?|0}]]}} {{penalty=[[0]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{targetmod=[[?{Target Modifier?|0}]]}} {{ml=[[@{INJURY_HEALINGROLL} * [[@{COMBAT_ENDURANCE}]]]]}} {{note=@{INJURY_LOCATION} @{INJURY_SEVERITY}@{INJURY_LEVEL} H@{INJURY_HEALINGROLL}}}" name="roll_HealingCheck"></button></div>
                 <div class="sheet-check-col sheet-center">
                     <input type="checkbox" name="attr_INJURY_INFECTED"><span></span>
                     <input type="hidden" name="attr_INJURY_INFECTED_FEEDBACK" value="0" readonly>
@@ -851,6 +851,13 @@ props:
         <tr>
             <th><span class="tcat">{{character_name}} {{rolldesc}}</span></th>
         </tr>
+        {{#infected}}
+            {{#rollTotal() infected 1}}
+                <tr>
+                    <td class="sheet-infected">Infected</td>
+                </tr>
+            {{/rollTotal() infected 1}}
+        {{/infected}}
         <tr>
             <td><span class="sheet-tcat">Target Mods:</span>
                 ML({{ml}}),
@@ -956,12 +963,16 @@ on("change:repeating_injury:injury_level remove:repeating_injury sheet:opened", 
 
 <!-- INJURY INFECTED FEEDBACK /-->
 <script type="text/worker">
-    on("change:repeating_injury:injury_infected sheet:opened", function() {
-        getAttrs(["repeating_injury_INJURY_INFECTED], function(values) {
-            setAttrs({
-                repeating_injury_INJURY_INFECTED_FEEDBACK: parseInt(values.repeating_injury_INJURY_INFECTED)||1
-            });
-        });
+    on("change:repeating_injury:injury_infected", function() {
+       getAttrs([
+          "repeating_injury_INJURY_INFECTED",
+          "repeating_spells_INJURY_INFECTED_FEEDBACK"
+        ], function(values) {
+            var isInfected = (values.repeating_injury_INJURY_INFECTED == 0 ? 0 : 1);
+           setAttrs({
+                repeating_injury_INJURY_INFECTED_FEEDBACK: isInfected
+           });
+       });
     });
 </script>
 
@@ -973,7 +984,7 @@ on("change:repeating_injury:injury_level remove:repeating_injury sheet:opened", 
             statTotal += parseInt(values["STA"])||0;
             statTotal += parseInt(values["WIL"])||0;
 
-            var endurance = parseInt(statTotal / 3)||0;
+            var endurance = Math.round(statTotal / 3)||0;
             setAttrs({
                 "COMBAT_ENDURANCE": endurance
         });
@@ -992,7 +1003,7 @@ on("change:repeating_injury:injury_level remove:repeating_injury sheet:opened", 
 
             setAttrs({
                 "LOAD_TOTAL": parseInt(total)||0,
-                "ENCUMBRANCE": parseInt(total/values["COMBAT_ENDURANCE"])||0
+                "ENCUMBRANCE": Math.round(total/values["COMBAT_ENDURANCE"])||0
             });
         });
     });
