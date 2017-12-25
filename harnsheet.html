@@ -850,7 +850,7 @@ props:
 
 /-->
 <rolltemplate class="sheet-rolltemplate-rollcheck">
-    <table>
+    <table>  
         <tr>
             <th><span class="tcat">{{character_name}} {{rolldesc}}</span></th>
         </tr>
@@ -868,7 +868,7 @@ props:
                 {{#targetmod}}Mod({{targetmod}}){{/targetmod}}
             </td>
         </tr>
-        <tr><td><span class="sheet-tcat">Target:</span> {{rolltarget}}</td></tr>
+        <tr><td><span class="sheet-tcat">Target EML:</span> {{rolltarget}}</td></tr>
         <tr><td><span class="sheet-tcat">Roll(1d100):</span> {{rollresult}}</td></tr>
 
         {{#^rollGreater() rollresult rolltarget}}
@@ -916,12 +916,12 @@ props:
 
         {{#rollGreater() penalty 0}}
         <tr>
-            <td><span class="tcat">Target: </span>({{base}}-{{penalty}}) = {{rolltarget}}</td>
+            <td><span class="tcat">Target EML: </span>({{base}}-{{penalty}}) = {{rolltarget}}</td>
         </tr>
         {{/rollGreater() penalty 0}}
         {{#^rollGreater() penalty 0}}
         <tr>
-            <td><span class="tcat">Target: </span>{{rolltarget}}</td>
+            <td><span class="tcat">Target EML: </span>{{rolltarget}}</td>
         </tr>
         {{/^rollGreater() penalty 0}}
         <tr>
