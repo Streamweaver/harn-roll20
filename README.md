@@ -23,9 +23,9 @@ To setup a token to represent a Mooks:
 ### Setting Up Abilities
 Each ability should be setup different as needed for the particular Mook you're building.  Some abilities are common across most Mooks however, with DODGE, INITIATIVE and SHOCK being the most common.  Most abilities setup will need to have a the appropriate penalty from wounds or fatigue applied (encumberance is usually already included in NPC stats).  These are kept track of in Bar 3 of the token and can be setup to be included in the rolls as in the examples below.
 
-*Note*: click the 'show as token action' to have these appear as button options when the token is selected on the mamp.
+*Note*: click the 'show as token action' to have these appear as button options when the token is selected on the map.
 
-To work with base abilities, add the values to the character sheet.  I often add at STR, STA, WIL, Initiative ML, Dodge ML.  Weapons, special abilities and more I add as individual ability macros.
+To work with base abilities, add the values to the character sheet.  I often add at STR, STA, WIL, Initiative ML, Dodge ML.  Weapons, special abilities and more I add as individual ability macros.  Also, make sure to set the token Bar 3 attribute to 0.
 
 #### Example Abilities
 
@@ -42,8 +42,7 @@ To work with base abilities, add the values to the character sheet.  I often add
 
 ##### Initiative (Note you'll need to click init at the top of every round for anyone wounded)
 ```
-&{template:default} {{name=@{selected|character_name}}} {{Initiative=[[[[@{selected|COMBAT_INITIATIVE} -
- @{selected|bar3} * 5]] &{tracker}]]}}
+&{template:default} {{name=@{selected|character_name}}} {{[[[[@{selected|COMBAT_INITIATIVE}-@{selected|bar3} * 5]] &{tracker}]]}}
 ```
 
 ##### Bit Attack (one example of an attack)
