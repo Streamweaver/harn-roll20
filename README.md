@@ -40,6 +40,12 @@ To work with base abilities, add the values to the character sheet.  I often add
  = [[@{selected|bar3}d6]]}}
 ```
 
+##### Initiative (Note you'll need to click init at the top of every round for anyone wounded)
+```
+&{template:default} {{name=@{selected|character_name}}} {{Initiative=[[[[@{selected|COMBAT_INITIATIVE} -
+ @{selected|bar3} * 5]] &{tracker}]]}}
+```
+
 ##### Bit Attack (one example of an attack)
 ```
 &{template:default} {{name=@{character_name} Bites}} {{ML=[[52 - [[@{selected|bar3} * 5]]]]}} {{Roll=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs10]]}} {{Note=4P}}
